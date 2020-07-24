@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Aim To Stream</title>
+</head>
+
+<body class="body">
+  <header class="header">
+    <p>
+      <span class="green">S0823</span>
+      <span>CGN</span>
+      <span class="yellow">1312</span>
+      <span class="yellow">WATPText</span>
+    </p>
+    <p>
+      <span id="day"></span>
+      <span id="date"></span>
+      <span id="month"></span>
+      <span id="time"></span>
+    </p>
+  </header>
+  <main class="main">
+    <section class="section">
+      <figure>
+        <!-- <video class="gif" src="./peace-hand_rainbow.mp4" autoplay loop></video> -->
+        <img class="gif" src="./peace-hand_rainbow.gif"></video>
+      </figure>
+      <h1 class="h1">WE AIM TO<br>STREAM</h1>
+    </section>
+    <section>
+      <p class="section__bar section__bar--blue">präsentiert von weaimtoplease.eu</p>
+    </section>
+    <section>
+      <h2 class="h2">MOGLII (live)</h2>
+      <p class="text">- Heute, 22 Uhr -</p>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__bar footer__bar--blue">Instagram Live: @weaimtoplease</p>
+  </footer>
+</body>
+
+</html>
+
+<style>
+  @font-face {
+    font-family: EuropeanTeletext;
+    src: url(EuropeanTeletext.ttf);
+  }
+
+  html {
+    font-family: 'EuropeanTeletext';
+    background-color: black;
+    color: white;
+  }
+
+  .body {
+    text-align: center;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px 30px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .green {
+    color: green;
+  }
+
+  .yellow {
+    color: yellow;
+  }
+
+  .h1 {
+    font-size: 65px;
+    text-align: left;
+    line-height: 1;
+  }
+
+  .h2 {
+    font-size: 50px;
+  }
+
+  .text {
+    font-size: 36px;
+  }
+
+  .gif {
+    height: 200px;
+  }
+
+  .section {
+    display: flex;
+  }
+
+  .section__bar,
+  .footer__bar {
+    line-height: 1.4;
+    letter-spacing: 1.2px;
+  }
+
+  .section__bar--blue {
+    color: yellow;
+    font-size: 16px;
+    background-color: red;
+  }
+
+  .footer__bar--blue {
+    color: white;
+    font-size: 22px;
+    background-color: blue;
+  }
+</style>
+
+<script>
+  const days = ["SO", "MO", "DI", "MI", "DO", "FR", "SA"];
+  const months = ['DEZ', 'JAN', 'FEB', 'APR', 'MAI', 'JUN', 'JUL', 'AUG', 'OKT', 'NOV'];
+
+  function checkTime(i) {
+    return (i < 10) ? "0" + i : i;
+  }
+
+  function startTime() {
+    const today = new Date();
+    document.getElementById('day').innerHTML = days[today.getDay()];
+    document.getElementById('date').innerHTML = today.getDate();
+    document.getElementById('month').innerHTML = months[today.getMonth()];
+    const h = checkTime(today.getHours());
+    const m = checkTime(today.getMinutes());
+    const s = checkTime(today.getSeconds());
+    document.getElementById('time').innerHTML = `${h}:${m}:${s}`
+    t = setTimeout(() => {
+      startTime()
+    }, 500);
+  }
+  startTime();
+</script>
